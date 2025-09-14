@@ -70,6 +70,7 @@ export default function Home() {
               con experiencia en IA, LLMs generativas y automatizaciones.
             </p>
 
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <a
                 href="/contact"
