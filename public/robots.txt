@@ -1,0 +1,29 @@
+User-agent: *
+Allow: /
+
+# Específicamente permitir a los bots importantes
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+# Disallow admin/private areas if any exist
+# User-agent: *
+# Disallow: /admin/
+# Disallow: /private/
+
+# Crawl-delay para evitar sobrecarga del servidor
+Crawl-delay: 1
+
+# Sitemap
+Sitemap: https://cerveretadev.es/sitemap.xml

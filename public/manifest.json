@@ -1,0 +1,35 @@
+{
+  "name": "CerveretaDev - Portfolio Profesional",
+  "short_name": "CerveretaDev",
+  "description": "Portfolio profesional de CerveretaDev - Desarrollador Web especializado en Next.js, React e Inteligencia Artificial",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3B82F6",
+  "orientation": "portrait-primary",
+  "categories": ["portfolio", "technology", "developer"],
+  "lang": "es",
+  "icons": [
+    {
+      "src": "/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/yo5.webp",
+      "sizes": "192x192",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    }
+  ]
+}
