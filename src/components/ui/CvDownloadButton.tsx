@@ -26,7 +26,9 @@ export const CvDownloadButton = ({
       console.log('Descarga del CV completada')
     } catch (error) {
       console.error('Error al generar el CV:', error)
-      alert('Error al generar el CV. Por favor, revisa la consola para más detalles.')
+      alert(
+        'Error al generar el CV. Por favor, revisa la consola para más detalles.'
+      )
     } finally {
       setIsLoading(false)
     }
