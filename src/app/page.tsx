@@ -1,19 +1,31 @@
 import Image from 'next/image'
 import { Button } from '@/components/ui/Button'
 import { Card } from '@/components/ui/Card'
+import { CvDownloadButton } from '@/components/ui/CvDownloadButton'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Inicio - CerveretaDev',
-  description: 'CerveretaDev - Desarrollador Web Full Stack especializado en Next.js, React, TypeScript e Inteligencia Artificial. 5 años creando soluciones innovadoras con IA y metodología BMAD-METHOD.',
+  description:
+    'CerveretaDev - Desarrollador Web Full Stack especializado en Next.js, React, TypeScript e Inteligencia Artificial. 5 años creando soluciones innovadoras con IA y metodología BMAD-METHOD.',
   keywords: [
-    'CerveretaDev Inicio', 'Desarrollador Web', 'Next.js Developer', 'React Developer',
-    'TypeScript', 'Inteligencia Artificial', 'IA Developer', 'Full Stack Developer España',
-    'LLMs', 'Automatización', 'BMAD-METHOD', 'Portfolio Desarrollador'
+    'CerveretaDev Inicio',
+    'Desarrollador Web',
+    'Next.js Developer',
+    'React Developer',
+    'TypeScript',
+    'Inteligencia Artificial',
+    'IA Developer',
+    'Full Stack Developer España',
+    'LLMs',
+    'Automatización',
+    'BMAD-METHOD',
+    'Portfolio Desarrollador',
   ],
   openGraph: {
     title: 'CerveretaDev - Desarrollador Web & Experto en IA',
-    description: 'Desarrollador Full Stack especializado en Next.js, React e IA. Creando soluciones innovadoras con 5 años de experiencia.',
+    description:
+      'Desarrollador Full Stack especializado en Next.js, React e IA. Creando soluciones innovadoras con 5 años de experiencia.',
     url: 'https://cerveretadev.es',
     images: [
       {
@@ -26,7 +38,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     title: 'CerveretaDev - Desarrollador Web & Experto en IA',
-    description: 'Desarrollador Full Stack especializado en Next.js, React e IA. Creando soluciones innovadoras.',
+    description:
+      'Desarrollador Full Stack especializado en Next.js, React e IA. Creando soluciones innovadoras.',
   },
   alternates: {
     canonical: 'https://cerveretadev.es',
@@ -62,14 +75,14 @@ export default function Home() {
                 CerveretaDev
               </span>
             </h1>
-            
+
             <p className="text-xl lg:text-2xl text-gray-600 mb-8 max-w-2xl">
               Desarrollador Web especializado en{' '}
-              <span className="text-cervereta-blue font-semibold">Next.js</span> y{' '}
-              <span className="text-cervereta-accent font-semibold">React</span>, 
-              con experiencia en IA, LLMs generativas y automatizaciones.
+              <span className="text-cervereta-blue font-semibold">Next.js</span>{' '}
+              y{' '}
+              <span className="text-cervereta-accent font-semibold">React</span>
+              , con experiencia en IA, LLMs generativas y automatizaciones.
             </p>
-
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <a
@@ -84,6 +97,7 @@ export default function Home() {
               >
                 Ver mis Habilidades
               </a>
+              <CvDownloadButton className="px-8 py-4" />
             </div>
           </div>
         </div>
@@ -99,24 +113,36 @@ export default function Home() {
             <div className="w-16 h-16 bg-gradient-to-r from-cervereta-blue to-cervereta-cyan rounded-full mx-auto mb-4 flex items-center justify-center">
               <span className="text-white text-2xl font-bold">WEB</span>
             </div>
-            <h3 className="text-xl font-semibold mb-2 text-center">Desarrollo Web</h3>
-            <p className="text-gray-600 text-center">Next.js, React, TypeScript, Tailwind CSS</p>
+            <h3 className="text-xl font-semibold mb-2 text-center">
+              Desarrollo Web
+            </h3>
+            <p className="text-gray-600 text-center">
+              Next.js, React, TypeScript, Tailwind CSS
+            </p>
           </Card>
 
           <Card>
             <div className="w-16 h-16 bg-gradient-to-r from-cervereta-accent to-cervereta-purple rounded-full mx-auto mb-4 flex items-center justify-center">
               <span className="text-white text-2xl font-bold">IA</span>
             </div>
-            <h3 className="text-xl font-semibold mb-2 text-center">Inteligencia Artificial</h3>
-            <p className="text-gray-600 text-center">LLMs generativas, MCPs, Workflows</p>
+            <h3 className="text-xl font-semibold mb-2 text-center">
+              Inteligencia Artificial
+            </h3>
+            <p className="text-gray-600 text-center">
+              LLMs generativas, MCPs, Workflows
+            </p>
           </Card>
 
           <Card>
             <div className="w-16 h-16 bg-gradient-to-r from-cervereta-soft to-cervereta-medium rounded-full mx-auto mb-4 flex items-center justify-center">
               <span className="text-white text-2xl font-bold">AUTO</span>
             </div>
-            <h3 className="text-xl font-semibold mb-2 text-center">Automatización</h3>
-            <p className="text-gray-600 text-center">Workflows, Excel Avanzado, Power BI</p>
+            <h3 className="text-xl font-semibold mb-2 text-center">
+              Automatización
+            </h3>
+            <p className="text-gray-600 text-center">
+              Workflows, Excel Avanzado, Power BI
+            </p>
           </Card>
         </div>
       </section>

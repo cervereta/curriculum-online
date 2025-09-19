@@ -1,15 +1,15 @@
-'use client';
+'use client'
 
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from 'react'
+import { motion } from 'framer-motion'
 
 interface EducationStatsCardProps {
-  title: string;
-  value: number;
-  icon: React.ComponentType<{ className?: string }>;
-  color: 'blue' | 'purple' | 'cyan' | 'accent';
-  delay?: number;
-  className?: string;
+  title: string
+  value: number
+  icon: React.ComponentType<{ className?: string }>
+  color: 'blue' | 'purple' | 'cyan' | 'accent'
+  delay?: number
+  className?: string
 }
 
 const colorVariants = {
@@ -18,30 +18,30 @@ const colorVariants = {
     bg: 'bg-cervereta-blue/10',
     text: 'text-cervereta-blue',
     border: 'border-cervereta-blue/20 hover:border-cervereta-blue/40',
-    shadow: 'hover:shadow-cervereta-blue/10'
+    shadow: 'hover:shadow-cervereta-blue/10',
   },
   purple: {
     gradient: 'from-cervereta-purple to-cervereta-accent',
     bg: 'bg-cervereta-purple/10',
     text: 'text-cervereta-purple',
     border: 'border-cervereta-purple/20 hover:border-cervereta-purple/40',
-    shadow: 'hover:shadow-cervereta-purple/10'
+    shadow: 'hover:shadow-cervereta-purple/10',
   },
   cyan: {
     gradient: 'from-cervereta-cyan to-cervereta-soft',
     bg: 'bg-cervereta-cyan/10',
     text: 'text-cervereta-cyan',
     border: 'border-cervereta-cyan/20 hover:border-cervereta-cyan/40',
-    shadow: 'hover:shadow-cervereta-cyan/10'
+    shadow: 'hover:shadow-cervereta-cyan/10',
   },
   accent: {
     gradient: 'from-cervereta-accent to-cervereta-purple',
     bg: 'bg-cervereta-accent/10',
     text: 'text-cervereta-accent',
     border: 'border-cervereta-accent/20 hover:border-cervereta-accent/40',
-    shadow: 'hover:shadow-cervereta-accent/10'
-  }
-};
+    shadow: 'hover:shadow-cervereta-accent/10',
+  },
+}
 
 export const EducationStatsCard: React.FC<EducationStatsCardProps> = ({
   title,
@@ -49,33 +49,33 @@ export const EducationStatsCard: React.FC<EducationStatsCardProps> = ({
   icon: Icon,
   color,
   delay = 0,
-  className = ''
+  className = '',
 }) => {
-  const [count, setCount] = React.useState(0);
-  const colorConfig = colorVariants[color];
+  const [count, setCount] = React.useState(0)
+  const colorConfig = colorVariants[color]
 
   React.useEffect(() => {
     const timer = setTimeout(() => {
-      let start = 0;
-      const end = value;
-      const duration = 1500;
-      const increment = end / (duration / 16);
+      let start = 0
+      const end = value
+      const duration = 1500
+      const increment = end / (duration / 16)
 
       const counter = setInterval(() => {
-        start += increment;
+        start += increment
         if (start >= end) {
-          setCount(end);
-          clearInterval(counter);
+          setCount(end)
+          clearInterval(counter)
         } else {
-          setCount(Math.floor(start));
+          setCount(Math.floor(start))
         }
-      }, 16);
+      }, 16)
 
-      return () => clearInterval(counter);
-    }, delay * 1000);
+      return () => clearInterval(counter)
+    }, delay * 1000)
 
-    return () => clearTimeout(timer);
-  }, [value, delay]);
+    return () => clearTimeout(timer)
+  }, [value, delay])
 
   return (
     <motion.div
@@ -85,12 +85,12 @@ export const EducationStatsCard: React.FC<EducationStatsCardProps> = ({
         delay,
         type: 'spring',
         bounce: 0.3,
-        duration: 0.6
+        duration: 0.6,
       }}
       whileHover={{
         scale: 1.05,
         y: -8,
-        transition: { duration: 0.2 }
+        transition: { duration: 0.2 },
       }}
       className={`
         relative text-center p-6 rounded-2xl
@@ -101,8 +101,12 @@ export const EducationStatsCard: React.FC<EducationStatsCardProps> = ({
       `}
     >
       {/* Background decoration */}
-      <div className={`absolute top-0 right-0 w-20 h-20 ${colorConfig.bg} rounded-full -translate-y-6 translate-x-6 opacity-50`} />
-      <div className={`absolute bottom-0 left-0 w-16 h-16 ${colorConfig.bg} rounded-full translate-y-4 -translate-x-4 opacity-30`} />
+      <div
+        className={`absolute top-0 right-0 w-20 h-20 ${colorConfig.bg} rounded-full -translate-y-6 translate-x-6 opacity-50`}
+      />
+      <div
+        className={`absolute bottom-0 left-0 w-16 h-16 ${colorConfig.bg} rounded-full translate-y-4 -translate-x-4 opacity-30`}
+      />
 
       {/* Icon */}
       <motion.div
@@ -126,12 +130,16 @@ export const EducationStatsCard: React.FC<EducationStatsCardProps> = ({
       </div>
 
       {/* Hover effect */}
-      <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent
-                      opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
+      <div
+        className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent
+                      opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"
+      />
 
       {/* Bottom accent line */}
-      <div className={`absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 group-hover:w-12 h-1
-                       bg-gradient-to-r ${colorConfig.gradient} transition-all duration-300 rounded-full`} />
+      <div
+        className={`absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 group-hover:w-12 h-1
+                       bg-gradient-to-r ${colorConfig.gradient} transition-all duration-300 rounded-full`}
+      />
     </motion.div>
-  );
-};
+  )
+}

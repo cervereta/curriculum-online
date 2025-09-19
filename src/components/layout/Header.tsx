@@ -1,12 +1,12 @@
-'use client';
+'use client'
 
-import React from 'react';
-import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { useNavigation, navigationItems } from './NavigationProvider';
+import React from 'react'
+import Link from 'next/link'
+import { motion } from 'framer-motion'
+import { useNavigation, navigationItems } from './NavigationProvider'
 
 const Header: React.FC = () => {
-  const { activeSection, toggleMobileMenu } = useNavigation();
+  const { activeSection, toggleMobileMenu } = useNavigation()
 
   return (
     <motion.header
@@ -31,7 +31,7 @@ const Header: React.FC = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navigationItems.map((item) => {
-              const isActive = activeSection === item.id;
+              const isActive = activeSection === item.id
               return (
                 <Link
                   key={item.id}
@@ -48,7 +48,7 @@ const Header: React.FC = () => {
                   >
                     {item.label}
                   </motion.span>
-                  
+
                   {/* Active indicator */}
                   {isActive && (
                     <motion.div
@@ -57,7 +57,7 @@ const Header: React.FC = () => {
                       className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-cervereta-blue to-cervereta-purple rounded-full"
                     />
                   )}
-                  
+
                   {/* Hover indicator */}
                   <motion.div
                     initial={{ scaleX: 0, opacity: 0 }}
@@ -65,7 +65,7 @@ const Header: React.FC = () => {
                     className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-cervereta-cyan to-cervereta-soft rounded-full origin-left"
                   />
                 </Link>
-              );
+              )
             })}
           </div>
 
@@ -77,20 +77,14 @@ const Header: React.FC = () => {
             className="md:hidden relative w-8 h-8 flex flex-col items-center justify-center space-y-1.5 group"
             aria-label="Abrir menú de navegación"
           >
-            <motion.span
-              className="block w-5 h-0.5 bg-gradient-to-r from-cervereta-blue to-cervereta-purple rounded-full group-hover:from-cervereta-purple group-hover:to-cervereta-accent transition-colors duration-200"
-            />
-            <motion.span
-              className="block w-5 h-0.5 bg-gradient-to-r from-cervereta-blue to-cervereta-purple rounded-full group-hover:from-cervereta-purple group-hover:to-cervereta-accent transition-colors duration-200"
-            />
-            <motion.span
-              className="block w-5 h-0.5 bg-gradient-to-r from-cervereta-blue to-cervereta-purple rounded-full group-hover:from-cervereta-purple group-hover:to-cervereta-accent transition-colors duration-200"
-            />
+            <motion.span className="block w-5 h-0.5 bg-gradient-to-r from-cervereta-blue to-cervereta-purple rounded-full group-hover:from-cervereta-purple group-hover:to-cervereta-accent transition-colors duration-200" />
+            <motion.span className="block w-5 h-0.5 bg-gradient-to-r from-cervereta-blue to-cervereta-purple rounded-full group-hover:from-cervereta-purple group-hover:to-cervereta-accent transition-colors duration-200" />
+            <motion.span className="block w-5 h-0.5 bg-gradient-to-r from-cervereta-blue to-cervereta-purple rounded-full group-hover:from-cervereta-purple group-hover:to-cervereta-accent transition-colors duration-200" />
           </motion.button>
         </div>
       </nav>
     </motion.header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

@@ -1,12 +1,12 @@
-'use client';
+'use client'
 
-import React from 'react';
-import { motion } from 'framer-motion';
-import { SectionHeaderProps } from './types';
+import React from 'react'
+import { motion } from 'framer-motion'
+import { SectionHeaderProps } from './types'
 
 /**
  * Encabezado de sección elegante y reutilizable con tipografía jerárquica
- * 
+ *
  * @example
  * <SectionHeader
  *   title="Experiencia Profesional"
@@ -20,7 +20,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
   subtitle,
   description,
   centered = false,
-  className = ''
+  className = '',
 }) => {
   const containerVariants = {
     hidden: { opacity: 0, y: 30 },
@@ -29,19 +29,19 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
       y: 0,
       transition: {
         duration: 0.6,
-        staggerChildren: 0.2
-      }
-    }
-  };
+        staggerChildren: 0.2,
+      },
+    },
+  }
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.5 }
-    }
-  };
+      transition: { duration: 0.5 },
+    },
+  }
 
   return (
     <motion.div
@@ -118,12 +118,12 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
           animate={{
             x: [0, 100, 0],
             y: [0, -50, 0],
-            opacity: [0.1, 0.2, 0.1]
+            opacity: [0.1, 0.2, 0.1],
           }}
           transition={{
             duration: 20,
             repeat: Infinity,
-            ease: "linear"
+            ease: 'linear',
           }}
           className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-cervereta-blue/10 to-cervereta-cyan/10 rounded-full blur-3xl"
         />
@@ -131,17 +131,17 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
           animate={{
             x: [0, -80, 0],
             y: [0, 30, 0],
-            opacity: [0.1, 0.15, 0.1]
+            opacity: [0.1, 0.15, 0.1],
           }}
           transition={{
             duration: 15,
             repeat: Infinity,
-            ease: "linear",
-            delay: 5
+            ease: 'linear',
+            delay: 5,
           }}
           className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-cervereta-purple/10 to-cervereta-accent/10 rounded-full blur-2xl"
         />
       </div>
     </motion.div>
-  );
-};
+  )
+}

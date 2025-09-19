@@ -1,12 +1,12 @@
-'use client';
+'use client'
 
-import React from 'react';
-import { motion } from 'framer-motion';
-import { SkillBadgeProps, SkillLevel, SkillCategory } from './types';
+import React from 'react'
+import { motion } from 'framer-motion'
+import { SkillBadgeProps, SkillLevel, SkillCategory } from './types'
 
 /**
  * Badge elegante para mostrar habilidades técnicas con nivel y categoría
- * 
+ *
  * @example
  * <SkillBadge
  *   name="React"
@@ -19,75 +19,75 @@ export const SkillBadge: React.FC<SkillBadgeProps> = ({
   level,
   category,
   color,
-  className = ''
+  className = '',
 }) => {
   // Mapeo de niveles a colores y intensidad
   const levelConfig = {
     beginner: { intensity: '25', label: 'Principiante' },
     intermediate: { intensity: '50', label: 'Intermedio' },
     advanced: { intensity: '75', label: 'Avanzado' },
-    expert: { intensity: '100', label: 'Experto' }
-  };
+    expert: { intensity: '100', label: 'Experto' },
+  }
 
   // Mapeo de categorías a colores y estilos
   const categoryConfig = {
-    frontend: { 
+    frontend: {
       bg: 'from-cervereta-blue/20 to-cervereta-cyan/20',
       text: 'text-cervereta-blue',
       border: 'border-cervereta-blue/30',
-      icon: '⚛️'
+      icon: '⚛️',
     },
-    backend: { 
+    backend: {
       bg: 'from-cervereta-purple/20 to-cervereta-medium/20',
       text: 'text-cervereta-purple',
       border: 'border-cervereta-purple/30',
-      icon: '⚙️'
+      icon: '⚙️',
     },
-    ai: { 
+    ai: {
       bg: 'from-cervereta-accent/20 to-cervereta-soft/20',
       text: 'text-cervereta-accent',
       border: 'border-cervereta-accent/30',
-      icon: '🤖'
+      icon: '🤖',
     },
-    tools: { 
+    tools: {
       bg: 'from-gray-200/20 to-gray-300/20',
       text: 'text-gray-600 dark:text-gray-300',
       border: 'border-gray-300/30',
-      icon: '🛠️'
+      icon: '🛠️',
     },
-    database: { 
+    database: {
       bg: 'from-cervereta-medium/20 to-cervereta-blue/20',
       text: 'text-cervereta-medium',
       border: 'border-cervereta-medium/30',
-      icon: '🗄️'
+      icon: '🗄️',
     },
-    cloud: { 
+    cloud: {
       bg: 'from-cervereta-cyan/20 to-cervereta-soft/20',
       text: 'text-cervereta-cyan',
       border: 'border-cervereta-cyan/30',
-      icon: '☁️'
-    }
-  };
+      icon: '☁️',
+    },
+  }
 
-  const categoryStyle = categoryConfig[category];
-  const levelInfo = levelConfig[level];
+  const categoryStyle = categoryConfig[category]
+  const levelInfo = levelConfig[level]
 
   // Obtener las barras de nivel visual
   const getLevelBars = () => {
-    const levels = ['beginner', 'intermediate', 'advanced', 'expert'];
-    const currentLevelIndex = levels.indexOf(level);
-    
+    const levels = ['beginner', 'intermediate', 'advanced', 'expert']
+    const currentLevelIndex = levels.indexOf(level)
+
     return levels.map((_, index) => (
       <div
         key={index}
         className={`w-1 h-3 rounded-full transition-all duration-300 ${
-          index <= currentLevelIndex 
+          index <= currentLevelIndex
             ? `bg-gradient-to-t ${categoryStyle.bg.replace('/20', '/60')}`
             : 'bg-gray-200/30'
         }`}
       />
-    ));
-  };
+    ))
+  }
 
   return (
     <motion.div
@@ -112,12 +112,13 @@ export const SkillBadge: React.FC<SkillBadgeProps> = ({
       </span>
 
       {/* Nombre de la habilidad */}
-      <span className="font-semibold">
-        {name}
-      </span>
+      <span className="font-semibold">{name}</span>
 
       {/* Indicador de nivel visual */}
-      <div className="flex items-center gap-0.5 ml-1" aria-label={`Nivel: ${levelInfo.label}`}>
+      <div
+        className="flex items-center gap-0.5 ml-1"
+        aria-label={`Nivel: ${levelInfo.label}`}
+      >
         {getLevelBars()}
       </div>
 
@@ -126,5 +127,5 @@ export const SkillBadge: React.FC<SkillBadgeProps> = ({
         {levelInfo.label}
       </div>
     </motion.div>
-  );
-};
+  )
+}

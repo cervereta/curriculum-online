@@ -1,30 +1,30 @@
-'use client';
+'use client'
 
-import React from 'react';
-import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useNavigation, navigationItems } from './NavigationProvider';
-import { 
-  HomeIcon, 
-  UserIcon, 
-  AcademicCapIcon, 
-  BriefcaseIcon, 
-  CpuChipIcon, 
+import React from 'react'
+import Link from 'next/link'
+import { motion, AnimatePresence } from 'framer-motion'
+import { useNavigation, navigationItems } from './NavigationProvider'
+import {
+  HomeIcon,
+  UserIcon,
+  AcademicCapIcon,
+  BriefcaseIcon,
+  CpuChipIcon,
   EnvelopeIcon,
-  XMarkIcon 
-} from '@heroicons/react/24/outline';
+  XMarkIcon,
+} from '@heroicons/react/24/outline'
 
 // Mapeo de iconos para cada item de navegación
 const iconMap = {
-  'inicio': HomeIcon,
+  inicio: HomeIcon,
   'sobre-mi': UserIcon,
-  'formacion': AcademicCapIcon,
-  'habilidades': CpuChipIcon,
-  'contacto': EnvelopeIcon,
-};
+  formacion: AcademicCapIcon,
+  habilidades: CpuChipIcon,
+  contacto: EnvelopeIcon,
+}
 
 const MobileMenu: React.FC = () => {
-  const { isMobileMenuOpen, closeMobileMenu, activeSection } = useNavigation();
+  const { isMobileMenuOpen, closeMobileMenu, activeSection } = useNavigation()
 
   const menuVariants = {
     closed: {
@@ -33,7 +33,7 @@ const MobileMenu: React.FC = () => {
         type: 'spring' as const,
         stiffness: 400,
         damping: 40,
-      }
+      },
     },
     open: {
       x: 0,
@@ -41,24 +41,24 @@ const MobileMenu: React.FC = () => {
         type: 'spring' as const,
         stiffness: 400,
         damping: 40,
-      }
-    }
-  };
+      },
+    },
+  }
 
   const overlayVariants = {
     closed: {
       opacity: 0,
       transition: {
         duration: 0.2,
-      }
+      },
     },
     open: {
       opacity: 1,
       transition: {
         duration: 0.3,
-      }
-    }
-  };
+      },
+    },
+  }
 
   const itemVariants = {
     closed: {
@@ -73,9 +73,9 @@ const MobileMenu: React.FC = () => {
         type: 'spring' as const,
         stiffness: 400,
         damping: 25,
-      }
-    })
-  };
+      },
+    }),
+  }
 
   return (
     <AnimatePresence>
@@ -110,7 +110,7 @@ const MobileMenu: React.FC = () => {
                 >
                   CerveretaDev
                 </motion.div>
-                
+
                 <motion.button
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
@@ -126,9 +126,9 @@ const MobileMenu: React.FC = () => {
               <nav className="flex-1 px-6 py-8">
                 <div className="space-y-4">
                   {navigationItems.map((item, index) => {
-                    const isActive = activeSection === item.id;
-                    const Icon = iconMap[item.id as keyof typeof iconMap];
-                    
+                    const isActive = activeSection === item.id
+                    const Icon = iconMap[item.id as keyof typeof iconMap]
+
                     return (
                       <motion.div
                         key={item.id}
@@ -146,24 +146,28 @@ const MobileMenu: React.FC = () => {
                               : 'hover:bg-gray-50 hover:scale-105'
                           }`}
                         >
-                          <div className={`p-2 rounded-lg ${
-                            isActive
-                              ? 'bg-gradient-to-r from-cervereta-blue to-cervereta-purple text-white'
-                              : 'bg-gray-100 text-gray-600'
-                          }`}>
+                          <div
+                            className={`p-2 rounded-lg ${
+                              isActive
+                                ? 'bg-gradient-to-r from-cervereta-blue to-cervereta-purple text-white'
+                                : 'bg-gray-100 text-gray-600'
+                            }`}
+                          >
                             <Icon className="w-5 h-5" />
                           </div>
-                          
+
                           <div className="flex-1">
-                            <span className={`text-lg font-medium ${
-                              isActive
-                                ? 'text-cervereta-blue'
-                                : 'text-gray-800'
-                            }`}>
+                            <span
+                              className={`text-lg font-medium ${
+                                isActive
+                                  ? 'text-cervereta-blue'
+                                  : 'text-gray-800'
+                              }`}
+                            >
                               {item.label}
                             </span>
                           </div>
-                          
+
                           {isActive && (
                             <motion.div
                               layoutId="activeMobileTab"
@@ -172,7 +176,7 @@ const MobileMenu: React.FC = () => {
                           )}
                         </Link>
                       </motion.div>
-                    );
+                    )
                   })}
                 </div>
               </nav>
@@ -205,7 +209,7 @@ const MobileMenu: React.FC = () => {
         </>
       )}
     </AnimatePresence>
-  );
-};
+  )
+}
 
-export default MobileMenu;
+export default MobileMenu

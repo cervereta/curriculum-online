@@ -1,19 +1,19 @@
-'use client';
+'use client'
 
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react'
+import { motion } from 'framer-motion'
 import {
   EnvelopeIcon,
   PhoneIcon,
   MapPinIcon,
-  PaperAirplaneIcon
-} from '@heroicons/react/24/outline';
+  PaperAirplaneIcon,
+} from '@heroicons/react/24/outline'
 
 interface FormData {
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
+  name: string
+  email: string
+  subject: string
+  message: string
 }
 
 export default function ContactPage() {
@@ -21,33 +21,35 @@ export default function ContactPage() {
     name: '',
     email: '',
     subject: '',
-    message: ''
-  });
+    message: '',
+  })
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
+      [e.target.name]: e.target.value,
+    })
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+    e.preventDefault()
+    setIsSubmitting(true)
 
     // Simular envío del formulario
     setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitted(true);
-      setFormData({ name: '', email: '', subject: '', message: '' });
+      setIsSubmitting(false)
+      setSubmitted(true)
+      setFormData({ name: '', email: '', subject: '', message: '' })
 
       // Reset success message after 5 seconds
-      setTimeout(() => setSubmitted(false), 5000);
-    }, 1000);
-  };
+      setTimeout(() => setSubmitted(false), 5000)
+    }, 1000)
+  }
 
   const contactInfo = [
     {
@@ -55,23 +57,23 @@ export default function ContactPage() {
       label: 'Email',
       value: 'cervereta@cerveretadev.es',
       href: 'mailto:cervereta@cerveretadev.es',
-      description: 'Contacto profesional'
+      description: 'Contacto profesional',
     },
     {
       icon: PhoneIcon,
       label: 'Teléfono',
       value: '+34 622 564 303',
       href: 'tel:+34622564303',
-      description: 'Disponible de lunes a viernes'
+      description: 'Disponible de lunes a viernes',
     },
     {
       icon: MapPinIcon,
       label: 'Ubicación',
       value: 'España',
       href: null,
-      description: 'Trabajo remoto y presencial'
-    }
-  ];
+      description: 'Trabajo remoto y presencial',
+    },
+  ]
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -79,15 +81,15 @@ export default function ContactPage() {
       opacity: 1,
       transition: {
         delayChildren: 0.3,
-        staggerChildren: 0.2
-      }
-    }
-  };
+        staggerChildren: 0.2,
+      },
+    },
+  }
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 }
-  };
+    visible: { opacity: 1, y: 0 },
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-16">
@@ -107,7 +109,8 @@ export default function ContactPage() {
             !
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            ¿Tienes una idea? ¿Necesitas ayuda con desarrollo web o IA? Estoy aquí para ayudarte a convertir tu visión en realidad.
+            ¿Tienes una idea? ¿Necesitas ayuda con desarrollo web o IA? Estoy
+            aquí para ayudarte a convertir tu visión en realidad.
           </p>
         </motion.div>
 
@@ -128,19 +131,25 @@ export default function ContactPage() {
 
               <div className="space-y-6">
                 {contactInfo.map((contact) => {
-                  const Icon = contact.icon;
+                  const Icon = contact.icon
                   const content = (
                     <div className="flex items-start space-x-4 p-4 rounded-xl hover:bg-gray-50 transition-colors duration-200">
                       <div className="p-3 bg-gradient-to-r from-cervereta-blue/20 to-cervereta-purple/20 rounded-lg">
                         <Icon className="w-6 h-6 text-cervereta-blue" />
                       </div>
                       <div className="flex-1">
-                        <h3 className="font-semibold text-gray-900">{contact.label}</h3>
-                        <p className="text-cervereta-blue font-medium">{contact.value}</p>
-                        <p className="text-sm text-gray-600">{contact.description}</p>
+                        <h3 className="font-semibold text-gray-900">
+                          {contact.label}
+                        </h3>
+                        <p className="text-cervereta-blue font-medium">
+                          {contact.value}
+                        </p>
+                        <p className="text-sm text-gray-600">
+                          {contact.description}
+                        </p>
                       </div>
                     </div>
-                  );
+                  )
 
                   return contact.href ? (
                     <motion.a
@@ -158,7 +167,7 @@ export default function ContactPage() {
                     >
                       {content}
                     </motion.div>
-                  );
+                  )
                 })}
               </div>
             </div>
@@ -170,11 +179,16 @@ export default function ContactPage() {
             >
               <h3 className="text-xl font-bold mb-4">¿Listo para empezar?</h3>
               <p className="text-white/90 mb-6">
-                Ya sea un proyecto web, automatización con IA, o consultoria técnica,
-                estoy aquí para ayudarte a alcanzar tus objetivos.
+                Ya sea un proyecto web, automatización con IA, o consultoria
+                técnica, estoy aquí para ayudarte a alcanzar tus objetivos.
               </p>
               <div className="flex flex-wrap gap-2">
-                {['Desarrollo Web', 'IA & Automatización', 'Consultoría', 'BMAD-METHOD'].map((service) => (
+                {[
+                  'Desarrollo Web',
+                  'IA & Automatización',
+                  'Consultoría',
+                  'BMAD-METHOD',
+                ].map((service) => (
                   <span
                     key={service}
                     className="px-3 py-1 bg-white/20 rounded-full text-sm font-medium"
@@ -210,7 +224,10 @@ export default function ContactPage() {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-medium text-gray-700 mb-2"
+                    >
                       Nombre *
                     </label>
                     <input
@@ -225,7 +242,10 @@ export default function ContactPage() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium text-gray-700 mb-2"
+                    >
                       Email *
                     </label>
                     <input
@@ -242,7 +262,10 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="subject"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
                     Asunto *
                   </label>
                   <input
@@ -258,7 +281,10 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
                     Mensaje *
                   </label>
                   <textarea
@@ -298,5 +324,5 @@ export default function ContactPage() {
         </motion.div>
       </div>
     </div>
-  );
+  )
 }

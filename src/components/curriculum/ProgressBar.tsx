@@ -1,12 +1,12 @@
-'use client';
+'use client'
 
-import React, { useEffect, useState } from 'react';
-import { motion, useInView } from 'framer-motion';
-import { ProgressBarProps, ColorVariant } from './types';
+import React, { useEffect, useState } from 'react'
+import { motion, useInView } from 'framer-motion'
+import { ProgressBarProps, ColorVariant } from './types'
 
 /**
  * Barra de progreso animada para mostrar nivel de habilidades
- * 
+ *
  * @example
  * <ProgressBar
  *   skill="React & Next.js"
@@ -22,59 +22,59 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
   color = 'blue',
   animated = true,
   showLabel = true,
-  className = ''
+  className = '',
 }) => {
-  const [animatedPercentage, setAnimatedPercentage] = useState(0);
-  const ref = React.useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const [animatedPercentage, setAnimatedPercentage] = useState(0)
+  const ref = React.useRef(null)
+  const isInView = useInView(ref, { once: true, amount: 0.3 })
 
   // Configuración de colores para cada variante
   const colorConfig = {
     blue: {
       bg: 'from-cervereta-blue to-cervereta-cyan',
       glow: 'shadow-cervereta-blue/50',
-      text: 'text-cervereta-blue'
+      text: 'text-cervereta-blue',
     },
     purple: {
       bg: 'from-cervereta-purple to-cervereta-accent',
       glow: 'shadow-cervereta-purple/50',
-      text: 'text-cervereta-purple'
+      text: 'text-cervereta-purple',
     },
     cyan: {
       bg: 'from-cervereta-cyan to-cervereta-soft',
       glow: 'shadow-cervereta-cyan/50',
-      text: 'text-cervereta-cyan'
+      text: 'text-cervereta-cyan',
     },
     accent: {
       bg: 'from-cervereta-accent to-cervereta-soft',
       glow: 'shadow-cervereta-accent/50',
-      text: 'text-cervereta-accent'
-    }
-  };
+      text: 'text-cervereta-accent',
+    },
+  }
 
-  const colorStyle = colorConfig[color];
+  const colorStyle = colorConfig[color]
 
   // Animación del porcentaje cuando entra en vista
   useEffect(() => {
     if (isInView && animated) {
       const timer = setTimeout(() => {
-        setAnimatedPercentage(percentage);
-      }, 300);
-      return () => clearTimeout(timer);
+        setAnimatedPercentage(percentage)
+      }, 300)
+      return () => clearTimeout(timer)
     } else if (!animated) {
-      setAnimatedPercentage(percentage);
+      setAnimatedPercentage(percentage)
     }
-  }, [isInView, percentage, animated]);
+  }, [isInView, percentage, animated])
 
   // Obtener el nivel basado en el porcentaje
   const getSkillLevel = (percent: number) => {
-    if (percent >= 90) return { level: 'Experto', color: 'text-green-600' };
-    if (percent >= 75) return { level: 'Avanzado', color: 'text-blue-600' };
-    if (percent >= 50) return { level: 'Intermedio', color: 'text-yellow-600' };
-    return { level: 'Principiante', color: 'text-gray-600' };
-  };
+    if (percent >= 90) return { level: 'Experto', color: 'text-green-600' }
+    if (percent >= 75) return { level: 'Avanzado', color: 'text-blue-600' }
+    if (percent >= 50) return { level: 'Intermedio', color: 'text-yellow-600' }
+    return { level: 'Principiante', color: 'text-gray-600' }
+  }
 
-  const skillLevel = getSkillLevel(percentage);
+  const skillLevel = getSkillLevel(percentage)
 
   return (
     <motion.div
@@ -91,7 +91,9 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
             {skill}
           </h4>
           {showLabel && (
-            <span className={`text-xs font-medium ${skillLevel.color} bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded-full`}>
+            <span
+              className={`text-xs font-medium ${skillLevel.color} bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded-full`}
+            >
               {skillLevel.level}
             </span>
           )}
@@ -121,8 +123,8 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
             animate={{ width: `${animatedPercentage}%` }}
             transition={{
               duration: animated ? 1.5 : 0,
-              ease: "easeOut",
-              delay: animated ? 0.3 : 0
+              ease: 'easeOut',
+              delay: animated ? 0.3 : 0,
             }}
           >
             {/* Efecto de brillo animado */}
@@ -134,10 +136,10 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
                 duration: 2,
                 repeat: Infinity,
                 repeatDelay: 3,
-                ease: "easeInOut"
+                ease: 'easeInOut',
               }}
             />
-            
+
             {/* Puntos decorativos */}
             <div className="absolute right-2 top-1/2 transform -translate-y-1/2 flex gap-1">
               <div className="w-1 h-1 bg-white/60 rounded-full"></div>
@@ -155,7 +157,9 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
             transition={{ delay: 1.8, duration: 0.3 }}
             className="absolute -top-1 right-0 transform translate-x-1/2"
           >
-            <div className={`w-5 h-5 ${colorStyle.bg} bg-gradient-to-br rounded-full shadow-lg flex items-center justify-center`}>
+            <div
+              className={`w-5 h-5 ${colorStyle.bg} bg-gradient-to-br rounded-full shadow-lg flex items-center justify-center`}
+            >
               <span className="text-white text-xs font-bold">★</span>
             </div>
           </motion.div>
@@ -171,5 +175,5 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
         <span>100%</span>
       </div>
     </motion.div>
-  );
-};
+  )
+}

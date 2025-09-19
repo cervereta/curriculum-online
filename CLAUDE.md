@@ -19,6 +19,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 2. Ejecutar `npm run lint:fix` para corregir problemas de linting
 3. Usar `npm run format` para mantener consistencia de formato
 
+### Dependencias Clave
+- **pdfmake** - Generación de PDFs para el CV
+- **framer-motion** - Animaciones
+- **@heroicons/react** - Iconografía
+- **clsx** - Utilidad para clases condicionales
+
 ## Arquitectura del Proyecto
 
 ### Stack Tecnológico
@@ -73,8 +79,17 @@ Los tipos globales están centralizados en `src/types/index.ts`, incluyendo:
 - Header fijo, contenido principal con padding-top, y Footer al final
 
 ### Características Específicas del Proyecto
-- **Portfolio personal** - Currículum online interactivo
+
+- **Portfolio personal** - Currículum online interactivo con generación de PDF
 - **Metadata personalizada** - SEO optimizado con dominio cerveretadev.es
 - **Navegación móvil** - Menú hamburguesa con estado global
 - **Componentes de currículum** - Sistema modular para mostrar experiencia, educación, habilidades
 - **Utilidades comunes** - Funciones para formateo de fechas, capitalización y sleep
+- **Generación de PDF** - Sistema completo con pdfmake para exportar CV (ver `src/lib/services/`)
+- **Datos del CV** - Estructura modular en `src/lib/data/` para fácil mantenimiento
+
+### Servicios de Generación de PDF
+
+- `cvGenerator.ts` - Generador principal de PDF del CV
+- `simpleCvGenerator.ts` - Versión simplificada del generador
+- Datos centralizados en `src/lib/data/cv.ts` con funciones de utilidad

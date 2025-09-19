@@ -1,57 +1,55 @@
-'use client';
+'use client'
 
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from 'react'
+import { motion } from 'framer-motion'
 
 interface Certificate {
-  id: string;
-  title: string;
-  issuer: string;
-  date: string;
-  description: string;
-  skills: string[];
-  category: 'frontend' | 'backend' | 'ai' | 'tools';
-  level: 'beginner' | 'intermediate' | 'advanced';
-  imageUrl?: string;
-  certificateUrl?: string;
+  id: string
+  title: string
+  issuer: string
+  date: string
+  description: string
+  skills: string[]
+  category: 'frontend' | 'backend' | 'ai' | 'tools'
+  level: 'beginner' | 'intermediate' | 'advanced'
+  imageUrl?: string
+  certificateUrl?: string
 }
 
 interface EducationCertificateCardProps {
-  certificate: Certificate;
-  categoryLabels: Record<string, string>;
-  className?: string;
+  certificate: Certificate
+  categoryLabels: Record<string, string>
+  className?: string
 }
 
-export const EducationCertificateCard: React.FC<EducationCertificateCardProps> = ({
-  certificate,
-  categoryLabels,
-  className = ''
-}) => {
+export const EducationCertificateCard: React.FC<
+  EducationCertificateCardProps
+> = ({ certificate, categoryLabels, className = '' }) => {
   const getLevelColor = (level: string) => {
     switch (level) {
       case 'advanced':
-        return 'bg-cervereta-purple/20 text-cervereta-purple border-cervereta-purple/30';
+        return 'bg-cervereta-purple/20 text-cervereta-purple border-cervereta-purple/30'
       case 'intermediate':
-        return 'bg-cervereta-blue/20 text-cervereta-blue border-cervereta-blue/30';
+        return 'bg-cervereta-blue/20 text-cervereta-blue border-cervereta-blue/30'
       default:
-        return 'bg-cervereta-cyan/20 text-cervereta-cyan border-cervereta-cyan/30';
+        return 'bg-cervereta-cyan/20 text-cervereta-cyan border-cervereta-cyan/30'
     }
-  };
+  }
 
   const getCategoryColor = (category: string) => {
     switch (category) {
       case 'frontend':
-        return 'bg-blue-100 text-blue-800 border-blue-200';
+        return 'bg-blue-100 text-blue-800 border-blue-200'
       case 'backend':
-        return 'bg-green-100 text-green-800 border-green-200';
+        return 'bg-green-100 text-green-800 border-green-200'
       case 'ai':
-        return 'bg-purple-100 text-purple-800 border-purple-200';
+        return 'bg-purple-100 text-purple-800 border-purple-200'
       case 'tools':
-        return 'bg-gray-100 text-gray-800 border-gray-200';
+        return 'bg-gray-100 text-gray-800 border-gray-200'
       default:
-        return 'bg-gray-100 text-gray-800 border-gray-200';
+        return 'bg-gray-100 text-gray-800 border-gray-200'
     }
-  };
+  }
 
   return (
     <motion.div
@@ -74,19 +72,28 @@ export const EducationCertificateCard: React.FC<EducationCertificateCardProps> =
             {certificate.title}
           </h3>
           <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-3">
-            <p className="text-cervereta-blue font-semibold text-lg">{certificate.issuer}</p>
+            <p className="text-cervereta-blue font-semibold text-lg">
+              {certificate.issuer}
+            </p>
             <span className="hidden sm:inline text-gray-400">•</span>
-            <span className="text-gray-600 font-medium">{certificate.date}</span>
+            <span className="text-gray-600 font-medium">
+              {certificate.date}
+            </span>
           </div>
         </div>
 
         {/* Category and Level badges */}
         <div className="flex flex-col gap-2 ml-4">
-          <div className={`px-3 py-1 rounded-full text-xs font-semibold border ${getCategoryColor(certificate.category)}`}>
+          <div
+            className={`px-3 py-1 rounded-full text-xs font-semibold border ${getCategoryColor(certificate.category)}`}
+          >
             {categoryLabels[certificate.category]}
           </div>
-          <div className={`px-3 py-1 rounded-full text-xs font-semibold border ${getLevelColor(certificate.level)}`}>
-            {certificate.level.charAt(0).toUpperCase() + certificate.level.slice(1)}
+          <div
+            className={`px-3 py-1 rounded-full text-xs font-semibold border ${getLevelColor(certificate.level)}`}
+          >
+            {certificate.level.charAt(0).toUpperCase() +
+              certificate.level.slice(1)}
           </div>
         </div>
       </div>
@@ -120,12 +127,16 @@ export const EducationCertificateCard: React.FC<EducationCertificateCardProps> =
       </div>
 
       {/* Hover effect overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-cervereta-blue/5 via-transparent to-cervereta-cyan/5
-                      opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl pointer-events-none" />
+      <div
+        className="absolute inset-0 bg-gradient-to-r from-cervereta-blue/5 via-transparent to-cervereta-cyan/5
+                      opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl pointer-events-none"
+      />
 
       {/* Decorative corner gradient */}
-      <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-cervereta-blue/10 to-transparent
-                      rounded-2xl pointer-events-none" />
+      <div
+        className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-cervereta-blue/10 to-transparent
+                      rounded-2xl pointer-events-none"
+      />
     </motion.div>
-  );
-};
+  )
+}

@@ -1,15 +1,33 @@
-'use client';
+'use client'
 
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from 'react'
+import { motion } from 'framer-motion'
 
 // Datos de habilidades organizadas por categorías
 const programmingSkills = {
-  frontend: ['Next.js', 'React', 'TypeScript', 'JavaScript', 'HTML5', 'CSS3', 'Tailwind CSS', 'Bootstrap', 'Vue.js'],
-  backend: ['Node.js', 'Python', 'Java', 'PHP', 'Express.js', 'FastAPI', 'Spring Boot'],
+  frontend: [
+    'Next.js',
+    'React',
+    'TypeScript',
+    'JavaScript',
+    'HTML5',
+    'CSS3',
+    'Tailwind CSS',
+    'Bootstrap',
+    'Vue.js',
+  ],
+  backend: [
+    'Node.js',
+    'Python',
+    'Java',
+    'PHP',
+    'Express.js',
+    'FastAPI',
+    'Spring Boot',
+  ],
   databases: ['MySQL', 'PostgreSQL', 'MongoDB', 'Firebase', 'Supabase'],
   tools: ['Git', 'Docker', 'VSCode', 'Figma', 'Postman'],
-};
+}
 
 const aiExperienceSkills = {
   llms: ['Claude', 'GPT-4', 'Gemini', 'Ollama', 'OpenAI API'],
@@ -18,7 +36,7 @@ const aiExperienceSkills = {
   metodologias: ['BMAD-METHOD'],
   herramientas: ['LangChain', 'Vector DBs', 'RAG', 'Fine-tuning'],
   plataformas: ['Anthropic Console', 'OpenAI Platform', 'Azure AI'],
-};
+}
 
 // Componente SkillBadge simple
 const SkillBadge = ({ skill }: { skill: string }) => (
@@ -30,7 +48,7 @@ const SkillBadge = ({ skill }: { skill: string }) => (
   >
     {skill}
   </motion.div>
-);
+)
 
 // Componente BMadMethod destacado
 const BmadMethodCard = () => (
@@ -50,7 +68,12 @@ const BmadMethodCard = () => (
       Combina mejores prácticas de desarrollo, automatización y deployment.
     </p>
     <div className="flex flex-wrap gap-2">
-      {['Automatización', 'Desarrollo Ágil', 'IA Integration', 'Best Practices'].map((tag) => (
+      {[
+        'Automatización',
+        'Desarrollo Ágil',
+        'IA Integration',
+        'Best Practices',
+      ].map((tag) => (
         <span
           key={tag}
           className="px-3 py-1 bg-white/20 rounded-full text-sm font-medium"
@@ -60,7 +83,7 @@ const BmadMethodCard = () => (
       ))}
     </div>
   </motion.div>
-);
+)
 
 export default function SkillsPage() {
   const containerVariants = {
@@ -72,12 +95,12 @@ export default function SkillsPage() {
         staggerChildren: 0.1,
       },
     },
-  };
+  }
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },
-  };
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-16">
@@ -96,7 +119,8 @@ export default function SkillsPage() {
             </span>
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Tecnologías y herramientas que domino para crear soluciones digitales innovadoras
+            Tecnologías y herramientas que domino para crear soluciones
+            digitales innovadoras
           </p>
         </motion.div>
 
@@ -107,7 +131,10 @@ export default function SkillsPage() {
           className="space-y-16"
         >
           {/* Sección Programación */}
-          <motion.section variants={itemVariants} className="bg-white rounded-2xl p-8 shadow-lg">
+          <motion.section
+            variants={itemVariants}
+            className="bg-white rounded-2xl p-8 shadow-lg"
+          >
             <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cervereta-blue to-cervereta-cyan">
                 Programación
@@ -132,7 +159,10 @@ export default function SkillsPage() {
           </motion.section>
 
           {/* Sección IA Experience */}
-          <motion.section variants={itemVariants} className="bg-white rounded-2xl p-8 shadow-lg">
+          <motion.section
+            variants={itemVariants}
+            className="bg-white rounded-2xl p-8 shadow-lg"
+          >
             <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cervereta-purple to-cervereta-accent">
                 IA Experience
@@ -146,10 +176,15 @@ export default function SkillsPage() {
                   <div key={category} className="space-y-4">
                     <h3 className="text-xl font-semibold text-gray-800 capitalize flex items-center">
                       <span className="w-2 h-2 bg-cervereta-purple rounded-full mr-3"></span>
-                      {category === 'herramientas' ? 'Herramientas IA' :
-                       category === 'plataformas' ? 'Plataformas' :
-                       category === 'clis' ? 'CLIs' :
-                       category === 'workflows' ? 'Workflows' : category}
+                      {category === 'herramientas'
+                        ? 'Herramientas IA'
+                        : category === 'plataformas'
+                          ? 'Plataformas'
+                          : category === 'clis'
+                            ? 'CLIs'
+                            : category === 'workflows'
+                              ? 'Workflows'
+                              : category}
                     </h3>
                     <div className="flex flex-wrap gap-2">
                       {skills.map((skill) => (
@@ -166,5 +201,5 @@ export default function SkillsPage() {
         </motion.div>
       </div>
     </div>
-  );
+  )
 }

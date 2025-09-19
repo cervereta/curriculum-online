@@ -1,22 +1,22 @@
-'use client';
+'use client'
 
-import React from 'react';
-import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { navigationItems } from './NavigationProvider';
-import { 
-  EnvelopeIcon, 
-  PhoneIcon, 
+import React from 'react'
+import Link from 'next/link'
+import { motion } from 'framer-motion'
+import { navigationItems } from './NavigationProvider'
+import {
+  EnvelopeIcon,
+  PhoneIcon,
   MapPinIcon,
-  ArrowUpIcon
-} from '@heroicons/react/24/outline';
+  ArrowUpIcon,
+} from '@heroicons/react/24/outline'
 
 const Footer: React.FC = () => {
-  const currentYear = new Date().getFullYear();
+  const currentYear = new Date().getFullYear()
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
 
   const contactInfo = [
     {
@@ -31,13 +31,13 @@ const Footer: React.FC = () => {
       value: 'España',
       href: null,
     },
-  ];
+  ]
 
   const legalLinks = [
     { label: 'Política de Privacidad', href: '/privacy' },
     { label: 'Términos de Uso', href: '/terms' },
     { label: 'Cookies', href: '/cookies' },
-  ];
+  ]
 
   return (
     <footer className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-hidden">
@@ -76,18 +76,21 @@ const Footer: React.FC = () => {
                 CerveretaDev
               </h3>
               <p className="text-gray-300 mb-6 leading-relaxed">
-                Desarrollador Web especializado en tecnologías modernas y experto en IA. 
-                Creando soluciones digitales innovadoras con pasión y excelencia técnica.
+                Desarrollador Web especializado en tecnologías modernas y
+                experto en IA. Creando soluciones digitales innovadoras con
+                pasión y excelencia técnica.
               </p>
               <div className="flex flex-wrap gap-2">
-                {['Next.js', 'React', 'TypeScript', 'IA', 'LLMs'].map((tech) => (
-                  <span
-                    key={tech}
-                    className="px-3 py-1 bg-gradient-to-r from-cervereta-blue/20 to-cervereta-purple/20 rounded-full text-sm border border-cervereta-blue/30"
-                  >
-                    {tech}
-                  </span>
-                ))}
+                {['Next.js', 'React', 'TypeScript', 'IA', 'LLMs'].map(
+                  (tech) => (
+                    <span
+                      key={tech}
+                      className="px-3 py-1 bg-gradient-to-r from-cervereta-blue/20 to-cervereta-purple/20 rounded-full text-sm border border-cervereta-blue/30"
+                    >
+                      {tech}
+                    </span>
+                  )
+                )}
               </div>
             </motion.div>
           </div>
@@ -100,7 +103,9 @@ const Footer: React.FC = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
-              <h4 className="text-lg font-semibold text-white mb-6">Navegación</h4>
+              <h4 className="text-lg font-semibold text-white mb-6">
+                Navegación
+              </h4>
               <ul className="space-y-3">
                 {navigationItems.map((item) => (
                   <li key={item.id}>
@@ -129,10 +134,12 @@ const Footer: React.FC = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <h4 className="text-lg font-semibold text-white mb-6">Contacto</h4>
+              <h4 className="text-lg font-semibold text-white mb-6">
+                Contacto
+              </h4>
               <ul className="space-y-4">
                 {contactInfo.map((contact) => {
-                  const Icon = contact.icon;
+                  const Icon = contact.icon
                   const content = (
                     <div className="flex items-center space-x-3 text-gray-300 hover:text-white transition-colors duration-200">
                       <div className="p-2 bg-gradient-to-r from-cervereta-blue/20 to-cervereta-purple/20 rounded-lg">
@@ -143,7 +150,7 @@ const Footer: React.FC = () => {
                         <p className="font-medium">{contact.value}</p>
                       </div>
                     </div>
-                  );
+                  )
 
                   return (
                     <li key={contact.label}>
@@ -156,12 +163,10 @@ const Footer: React.FC = () => {
                           {content}
                         </motion.a>
                       ) : (
-                        <motion.div whileHover={{ x: 5 }}>
-                          {content}
-                        </motion.div>
+                        <motion.div whileHover={{ x: 5 }}>{content}</motion.div>
                       )}
                     </li>
-                  );
+                  )
                 })}
               </ul>
             </motion.div>
@@ -175,7 +180,9 @@ const Footer: React.FC = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.3 }}
             >
-              <h4 className="text-lg font-semibold text-white mb-6">Acciones Rápidas</h4>
+              <h4 className="text-lg font-semibold text-white mb-6">
+                Acciones Rápidas
+              </h4>
               <div className="space-y-4">
                 <Link
                   href="/contact"
@@ -183,7 +190,7 @@ const Footer: React.FC = () => {
                 >
                   Contactar
                 </Link>
-                
+
                 <motion.button
                   onClick={scrollToTop}
                   whileHover={{ scale: 1.05 }}
@@ -210,9 +217,9 @@ const Footer: React.FC = () => {
             <div className="text-center md:text-left">
               <p className="text-gray-400 text-sm">
                 © {currentYear}{' '}
-                <a 
-                  href="https://cerveretadev.es" 
-                  target="_blank" 
+                <a
+                  href="https://cerveretadev.es"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="text-cervereta-blue hover:text-cervereta-cyan transition-colors duration-300 font-semibold"
                 >
@@ -224,7 +231,7 @@ const Footer: React.FC = () => {
                 Desarrollado con Next.js, TypeScript y Tailwind CSS
               </p>
             </div>
-            
+
             <div className="flex items-center space-x-4">
               {legalLinks.map((link) => (
                 <Link
@@ -240,7 +247,7 @@ const Footer: React.FC = () => {
         </motion.div>
       </div>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

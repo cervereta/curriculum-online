@@ -5,7 +5,10 @@ interface LoadingSpinnerProps {
   className?: string
 }
 
-export function LoadingSpinner({ size = 'md', className }: LoadingSpinnerProps) {
+export function LoadingSpinner({
+  size = 'md',
+  className,
+}: LoadingSpinnerProps) {
   return (
     <div className="flex items-center justify-center">
       <div

@@ -1,13 +1,13 @@
-'use client';
+'use client'
 
-import React from 'react';
-import { motion } from 'framer-motion';
-import { CertificateCardProps } from './types';
-import { SkillBadge } from './SkillBadge';
+import React from 'react'
+import { motion } from 'framer-motion'
+import { CertificateCardProps } from './types'
+import { SkillBadge } from './SkillBadge'
 
 /**
  * Tarjeta elegante para mostrar certificaciones académicas y profesionales
- * 
+ *
  * @example
  * <CertificateCard
  *   title="Next.js Certification"
@@ -25,7 +25,7 @@ export const CertificateCard: React.FC<CertificateCardProps> = ({
   description,
   skills,
   isHighlighted = false,
-  className = ''
+  className = '',
 }) => {
   return (
     <motion.div
@@ -35,9 +35,10 @@ export const CertificateCard: React.FC<CertificateCardProps> = ({
       whileHover={{ y: -4, scale: 1.02 }}
       className={`
         relative overflow-hidden rounded-xl p-6 
-        ${isHighlighted 
-          ? 'bg-gradient-to-br from-cervereta-blue/10 via-cervereta-purple/5 to-cervereta-accent/10 border-2 border-cervereta-blue/30' 
-          : 'bg-white/5 border border-gray-200/20 hover:border-cervereta-blue/40'
+        ${
+          isHighlighted
+            ? 'bg-gradient-to-br from-cervereta-blue/10 via-cervereta-purple/5 to-cervereta-accent/10 border-2 border-cervereta-blue/30'
+            : 'bg-white/5 border border-gray-200/20 hover:border-cervereta-blue/40'
         }
         backdrop-blur-sm shadow-lg hover:shadow-2xl
         transition-all duration-300 group
@@ -47,7 +48,9 @@ export const CertificateCard: React.FC<CertificateCardProps> = ({
       {/* Highlight indicator */}
       {isHighlighted && (
         <div className="absolute top-0 right-0 w-0 h-0 border-l-[30px] border-l-transparent border-t-[30px] border-t-cervereta-blue">
-          <div className="absolute -top-[26px] -right-[2px] text-white text-xs font-bold transform rotate-45">★</div>
+          <div className="absolute -top-[26px] -right-[2px] text-white text-xs font-bold transform rotate-45">
+            ★
+          </div>
         </div>
       )}
 
@@ -106,5 +109,5 @@ export const CertificateCard: React.FC<CertificateCardProps> = ({
       {/* Decorative line */}
       <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-cervereta-blue via-cervereta-purple to-cervereta-accent opacity-30 group-hover:opacity-60 transition-opacity duration-300" />
     </motion.div>
-  );
-};
+  )
+}
