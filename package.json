@@ -13,6 +13,7 @@
     "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,css,md}\""
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@heroicons/react": "^2.2.0",
     "clsx": "^2.1.1",
     "framer-motion": "^12.23.12",

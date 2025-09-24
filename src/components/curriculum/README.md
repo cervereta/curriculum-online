@@ -5,6 +5,7 @@ Colección de componentes UI avanzados para el curriculum online, diseñados esp
 ## 🎨 Paleta de Colores
 
 Los componentes utilizan la paleta oficial de CerveretaDev:
+
 - `cervereta-blue`: #028AFA (Azul principal)
 - `cervereta-purple`: #1802FA (Azul oscuro/morado)
 - `cervereta-medium`: #023CFA (Azul medio)
@@ -19,19 +20,20 @@ Los componentes utilizan la paleta oficial de CerveretaDev:
 Tarjeta elegante para mostrar certificaciones académicas y profesionales.
 
 ```tsx
-import { CertificateCard } from '@/components/curriculum';
+import { CertificateCard } from '@/components/curriculum'
 
-<CertificateCard
+;<CertificateCard
   title="Next.js 14 Certification"
   code="CERT-2024-001"
   category="Frontend Development"
   description="Certificación avanzada en desarrollo con Next.js 14, incluyendo App Router y Server Components"
-  skills={["React", "TypeScript", "Server Components", "App Router"]}
+  skills={['React', 'TypeScript', 'Server Components', 'App Router']}
   isHighlighted={true}
 />
 ```
 
 **Props:**
+
 - `title` (string): Título de la certificación
 - `code?` (string): Código de certificación opcional
 - `category` (string): Categoría de la certificación
@@ -45,16 +47,13 @@ import { CertificateCard } from '@/components/curriculum';
 Badge para mostrar habilidades técnicas con nivel y categoría.
 
 ```tsx
-import { SkillBadge } from '@/components/curriculum';
+import { SkillBadge } from '@/components/curriculum'
 
-<SkillBadge
-  name="React"
-  level="expert"
-  category="frontend"
-/>
+;<SkillBadge name="React" level="expert" category="frontend" />
 ```
 
 **Props:**
+
 - `name` (string): Nombre de la habilidad
 - `level` ('beginner' | 'intermediate' | 'advanced' | 'expert'): Nivel de experiencia
 - `category` ('frontend' | 'backend' | 'ai' | 'tools' | 'database' | 'cloud'): Categoría técnica
@@ -62,6 +61,7 @@ import { SkillBadge } from '@/components/curriculum';
 - `className?` (string): Clases CSS adicionales
 
 **Categorías disponibles:**
+
 - `frontend`: ⚛️ React, Vue, Angular, etc.
 - `backend`: ⚙️ Node.js, Python, Java, etc.
 - `ai`: 🤖 TensorFlow, PyTorch, OpenAI, etc.
@@ -74,9 +74,9 @@ import { SkillBadge } from '@/components/curriculum';
 Encabezado de sección reutilizable con tipografía jerárquica.
 
 ```tsx
-import { SectionHeader } from '@/components/curriculum';
+import { SectionHeader } from '@/components/curriculum'
 
-<SectionHeader
+;<SectionHeader
   title="Experiencia Profesional"
   subtitle="Más de 5 años desarrollando soluciones web"
   description="Mi trayectoria profesional abarca desde desarrollo frontend hasta implementación de soluciones de IA"
@@ -85,6 +85,7 @@ import { SectionHeader } from '@/components/curriculum';
 ```
 
 **Props:**
+
 - `title` (string): Título principal de la sección
 - `subtitle?` (string): Subtítulo opcional
 - `description?` (string): Descripción detallada opcional
@@ -96,9 +97,9 @@ import { SectionHeader } from '@/components/curriculum';
 Barra de progreso animada para mostrar nivel de habilidades.
 
 ```tsx
-import { ProgressBar } from '@/components/curriculum';
+import { ProgressBar } from '@/components/curriculum'
 
-<ProgressBar
+;<ProgressBar
   skill="React & Next.js"
   percentage={95}
   color="blue"
@@ -108,6 +109,7 @@ import { ProgressBar } from '@/components/curriculum';
 ```
 
 **Props:**
+
 - `skill` (string): Nombre de la habilidad
 - `percentage` (number): Porcentaje de dominio (0-100)
 - `color?` ('blue' | 'purple' | 'cyan' | 'accent'): Variante de color
@@ -120,12 +122,12 @@ import { ProgressBar } from '@/components/curriculum';
 Ejemplo de uso combinado para crear una sección completa:
 
 ```tsx
-import { 
-  SectionHeader, 
-  CertificateCard, 
-  SkillBadge, 
-  ProgressBar 
-} from '@/components/curriculum';
+import {
+  SectionHeader,
+  CertificateCard,
+  SkillBadge,
+  ProgressBar,
+} from '@/components/curriculum'
 
 export default function SkillsSection() {
   return (
@@ -136,24 +138,34 @@ export default function SkillsSection() {
         description="Un resumen de mis competencias técnicas principales"
         centered
       />
-      
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
         <div className="space-y-6">
-          <ProgressBar skill="React & Next.js" percentage={95} color="blue" animated />
-          <ProgressBar skill="TypeScript" percentage={90} color="purple" animated />
+          <ProgressBar
+            skill="React & Next.js"
+            percentage={95}
+            color="blue"
+            animated
+          />
+          <ProgressBar
+            skill="TypeScript"
+            percentage={90}
+            color="purple"
+            animated
+          />
           <ProgressBar skill="Node.js" percentage={85} color="cyan" animated />
         </div>
-        
+
         <div className="space-y-4">
           <CertificateCard
             title="Full Stack Development"
             category="Web Development"
-            skills={["React", "Node.js", "MongoDB"]}
+            skills={['React', 'Node.js', 'MongoDB']}
             isHighlighted
           />
         </div>
       </div>
-      
+
       <div className="flex flex-wrap gap-3 mt-8 justify-center">
         <SkillBadge name="React" level="expert" category="frontend" />
         <SkillBadge name="TypeScript" level="advanced" category="frontend" />
@@ -161,13 +173,14 @@ export default function SkillsSection() {
         <SkillBadge name="Python" level="intermediate" category="ai" />
       </div>
     </section>
-  );
+  )
 }
 ```
 
 ## ♿ Accesibilidad
 
 Todos los componentes incluyen:
+
 - **Contraste adecuado**: Cumple con WCAG 2.1 AA (mínimo 4.5:1)
 - **Navegación por teclado**: Completamente accesible con Tab/Enter
 - **Lectores de pantalla**: ARIA labels y roles apropiados
@@ -184,6 +197,7 @@ Todos los componentes incluyen:
 ## 🎭 Animaciones
 
 Utilizan **Framer Motion** para:
+
 - Animaciones de entrada suaves
 - Estados hover interactivos
 - Transiciones fluidas

@@ -8,6 +8,7 @@ import {
   MapPinIcon,
   PaperAirplaneIcon,
 } from '@heroicons/react/24/outline'
+import { sendEmail, type EmailData } from '@/lib/services/emailService'
 
 interface FormData {
   name: string
@@ -26,6 +27,7 @@ export default function ContactPage() {
 
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
+  const [error, setError] = useState('')
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -39,16 +41,37 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setError('')
 
-    // Simular envío del formulario
-    setTimeout(() => {
+    try {
+      const emailData: EmailData = {
+        name: formData.name,
+        email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+      }
+
+      const success = await sendEmail(emailData)
+
+      if (success) {
+        setSubmitted(true)
+        setFormData({ name: '', email: '', subject: '', message: '' })
+
+        // Reset success message after 5 seconds
+        setTimeout(() => setSubmitted(false), 5000)
+      } else {
+        setError(
+          'Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.'
+        )
+      }
+    } catch (err) {
+      console.error('Error sending email:', err)
+      setError(
+        'Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.'
+      )
+    } finally {
       setIsSubmitting(false)
-      setSubmitted(true)
-      setFormData({ name: '', email: '', subject: '', message: '' })
-
-      // Reset success message after 5 seconds
-      setTimeout(() => setSubmitted(false), 5000)
-    }, 1000)
+    }
   }
 
   const contactInfo = [
@@ -218,6 +241,16 @@ export default function ContactPage() {
                   <p className="text-green-800 font-medium">
                     ✅ ¡Mensaje enviado correctamente! Te responderé pronto.
                   </p>
+                </motion.div>
+              )}
+
+              {error && (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg"
+                >
+                  <p className="text-red-800 font-medium">❌ {error}</p>
                 </motion.div>
               )}
 

@@ -5,6 +5,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Comandos de Desarrollo
 
 ### Comandos Principales
+
 - `npm run dev` - Servidor de desarrollo (puerto 3000)
 - `npm run build` - Build para producción
 - `npm run start` - Servidor de producción
@@ -15,11 +16,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `npm run format:check` - Verifica formato del código
 
 ### Flujo de Desarrollo
+
 1. Usar `npm run type-check` para verificar tipos antes de commits
 2. Ejecutar `npm run lint:fix` para corregir problemas de linting
 3. Usar `npm run format` para mantener consistencia de formato
 
 ### Dependencias Clave
+
 - **pdfmake** - Generación de PDFs para el CV
 - **framer-motion** - Animaciones
 - **@heroicons/react** - Iconografía
@@ -28,12 +31,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Arquitectura del Proyecto
 
 ### Stack Tecnológico
+
 - **Next.js 14** con App Router y Server Components
 - **TypeScript** con configuración estricta
 - **Tailwind CSS** para estilos
 - **ESLint + Prettier** para calidad de código
 
 ### Estructura de Carpetas
+
 ```
 src/
 ├── app/                 # App Router (páginas, layouts, loading states)
@@ -49,7 +54,9 @@ src/
 ```
 
 ### Configuración de Imports
+
 El proyecto usa alias de TypeScript configurados en `tsconfig.json`:
+
 - `@/*` - Acceso directo a `src/`
 - `@/components/*` - Componentes
 - `@/hooks/*` - Hooks personalizados
@@ -57,6 +64,7 @@ El proyecto usa alias de TypeScript configurados en `tsconfig.json`:
 - `@/types/*` - Tipos TypeScript
 
 ### Patrones de Componentes
+
 - Los componentes UI están en `src/components/ui/` y siguen el patrón de `forwardRef`
 - Uso de la función `cn()` de `@/lib/utils` para concatenación de clases de Tailwind con clsx
 - Componentes tipados con interfaces TypeScript extendiendo tipos HTML nativos
@@ -64,13 +72,16 @@ El proyecto usa alias de TypeScript configurados en `tsconfig.json`:
 - Componentes de currículum organizados por funcionalidad (filtros, cards, estadísticas)
 
 ### Tipos y Interfaces
+
 Los tipos globales están centralizados en `src/types/index.ts`, incluyendo:
+
 - `User` - Interface para usuarios
 - `ApiResponse<T>` - Respuesta genérica de API
 - `Theme` - Tema de la aplicación
 - `NavigationItem` - Items de navegación
 
 ### Layout Principal
+
 - Configurado en `src/app/layout.tsx` con idioma español
 - Usa fuente Inter de Google Fonts
 - Layout responsive con flexbox y altura completa

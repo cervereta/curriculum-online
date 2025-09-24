@@ -12,6 +12,7 @@ Create a complete authenticated page with:
 8. TypeScript types for all props and state
 
 Structure:
+
 - Page component with authentication wrapper
 - Loading component with skeleton UI
 - Error component with retry functionality

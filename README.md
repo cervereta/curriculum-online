@@ -5,7 +5,7 @@ Este proyecto fue generado con la **Plantilla Base de Next.js**.
 ## ✨ Características
 
 - ⚡ **Next.js 14** - App Router, Server Components
-- 🔷 **TypeScript** - Tipado estático 
+- 🔷 **TypeScript** - Tipado estático
 - 🎨 **Tailwind CSS** - Framework CSS utilitario
 - ⚙️ **ESLint + Prettier** - Linting y formateo automático
 - 📁 **Estructura organizada** - Carpetas bien definidas
@@ -17,11 +17,13 @@ Este proyecto fue generado con la **Plantilla Base de Next.js**.
 ## 🚀 Inicio Rápido
 
 1. **Instala las dependencias:**
+
    ```bash
    npm install
    ```
 
 2. **Inicia el servidor de desarrollo:**
+
    ```bash
    npm run dev
    ```
@@ -31,7 +33,7 @@ Este proyecto fue generado con la **Plantilla Base de Next.js**.
 ## 📜 Scripts Disponibles
 
 - `npm run dev` - Servidor de desarrollo
-- `npm run build` - Build para producción  
+- `npm run build` - Build para producción
 - `npm run start` - Servidor de producción
 - `npm run lint` - Ejecuta ESLint
 - `npm run lint:fix` - Arregla problemas de ESLint automáticamente
@@ -63,6 +65,7 @@ src/
 ### Personalización
 
 Edita los archivos de configuración según tus necesidades:
+
 - `tailwind.config.ts` - Personalización de Tailwind
 - `next.config.js` - Configuración de Next.js
 - `.eslintrc.json` - Reglas de ESLint

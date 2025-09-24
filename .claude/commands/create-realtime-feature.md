@@ -3,7 +3,7 @@
 Build a complete real-time feature using Socket.IO + Firebase:
 
 1. Socket.IO event handlers (client and server)
-2. Firebase Firestore real-time subscriptions  
+2. Firebase Firestore real-time subscriptions
 3. TanStack Query integration with real-time updates
 4. Zustand store for real-time state management
 5. Optimistic updates with rollback capability
